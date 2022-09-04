@@ -1,0 +1,31 @@
+
+<div>
+  <h1>LIST OF PRODUCTS</h1>
+</div>
+<div class="row" style="background-color:cadetblue;">
+  
+  <table class="table table-primary">
+    <tr style="text-align:center; background-color:aqua ;">
+    <th>PRODUCTS</th>
+    <TH>PRICE</TH>
+    <TH>IMAGE</TH>
+    <TH>DELETE</TH>
+    </tr>
+       
+        <tr *ngFor="let i of products" style="background-color:chartreuse ;">
+          
+          <td>{{i.name}}</td>
+          <td>₹{{i.price}}</td>
+          <td>
+            <img src={{i.image}} alt={{i.name}} />
+        </td>
+        <td>
+          <form action="http://localhost:3000/api/products/delete" method="post">
+            <input type="hidden" name="id" value={{i._id}}>
+            <button class="btn btn-primary">DELETE</button>
+          </form>
+        </td>      
+        </tr>
+      </table>  
+
+</div>
